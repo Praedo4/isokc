@@ -18,8 +18,7 @@ const recordings = [
     { start: "2.61", end: "2.66" },
     { start: "2.67", end: "2.70" },
     { start: "3.1", end: "3.3" },
-    { start: "3.4", end: "3.4" },
-    { start: "3.5", end: "3.9" },
+    { start: "3.4", end: "3.9" },
     { start: "3.10", end: "3.13" },
     { start: "3.14", end: "3.18" },
     { start: "3.19", end: "3.21" },
@@ -76,6 +75,16 @@ const recordings = [
     { start: "9.6", end: "9.9" },
     { start: "9.10", end: "9.11" },
     { start: "9.11", end: "9.11", filename: "9.11.2.mp3" },
+    { start: "9.12", end: "9.14", },
+    { start: "9.15", end: "9.15", },
+    { start: "9.16", end: "9.16", },
+    { start: "9.17", end: "9.17", },
+    { start: "9.18", end: "9.20", },
+    { start: "9.21", end: "9.22", },
+    { start: "9.23", end: "9.26", },
+    { start: "9.27", end: "9.29", },
+    { start: "9.30", end: "9.31", },
+    { start: "9.32", end: "9.33", },
 ];
 
 export default {

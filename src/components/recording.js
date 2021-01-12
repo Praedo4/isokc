@@ -33,7 +33,7 @@ function Recording(data) {
   let shlokas = expandShlokas(data);
 
   const audioRef = React.useRef();
-  console.log(audioRef);
+  //console.log(audioRef);
   React.useEffect(() => {
     const { current: audioElement } = audioRef;
     console.log("currentTime: " + audioElement.currentTime);
