@@ -5,7 +5,8 @@ const recordings = [
     { start: "1.32", end: "1.40" },
     { start: "1.41", end: "1.46" },
     { start: "2.1", end: "2.2" },
-    { start: "2.3", end: "2.11" },
+    { start: "2.3", end: "2.4" },
+    { start: "2.4", end: "2.11" },
     { start: "2.12", end: "2.15" },
     { start: "2.16", end: "2.17" },
     { start: "2.18", end: "2.22" },
@@ -85,6 +86,8 @@ const recordings = [
     { start: "9.27", end: "9.29", },
     { start: "9.30", end: "9.31", },
     { start: "9.32", end: "9.33", },
+    { start: "10.1", end: "10.2", },
+    { start: "10.3", end: "10.5", },
 ];
 
 export default {
