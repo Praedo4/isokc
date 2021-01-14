@@ -90,6 +90,6 @@ const recordings = [
     { start: "10.3", end: "10.5", },
 ];
 
-export default {
-    recordings: recordings
-}
+const data = {recordings: recordings}
+
+export default data
