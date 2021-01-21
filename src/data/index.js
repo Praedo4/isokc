@@ -94,6 +94,7 @@ const recordings = [
     { start: "10.5", end: "10.5", filename: "10.5.5.mp3" },
     { start: "10.6", end: "10.8", },
     { start: "10.9", end: "10.9", },
+    { start: "10.10", end: "10.11", },
 ];
 
 const data = {recordings: recordings}
