@@ -33,18 +33,23 @@ function Recording(data) {
   let shlokas = expandShlokas(data);
 
   const audioRef = React.useRef();
-  //console.log(audioRef);
   React.useEffect(() => {
     const { current: audioElement } = audioRef;
-    console.log("currentTime: " + audioElement.currentTime);
   });
+
+  if(audioRef.current){
+    audioRef.current.pause()
+    audioRef.current.load()
+  }
 
   return (
     <section id={data.start}>
       <p>Шлоки: {shlokas.join(",")}</p>
+      <button onClick={()=>data.findPrevious(data)}>←</button>
       <audio controls ref={audioRef}>
         <source src={getAudioFilename(data)} type="audio/mpeg" />
       </audio>
+      <button onClick={()=>data.findNext(data)}>→</button>
       <hr />
     </section>
   );
