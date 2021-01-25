@@ -33,9 +33,6 @@ function Recording(data) {
   let shlokas = expandShlokas(data);
 
   const audioRef = React.useRef();
-  React.useEffect(() => {
-    const { current: audioElement } = audioRef;
-  });
 
   if(audioRef.current){
     audioRef.current.pause()

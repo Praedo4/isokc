@@ -1,10 +1,3 @@
-
-function getAudioFilename(recording) {
-  return (
-    (recording.filename ? recording.filename : recording.end + ".mp3")
-  );
-}
-
 function TableOfContent(props) {
   
   return (

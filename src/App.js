@@ -49,15 +49,15 @@ function App() {
   }
 
   function findPrevious(recording){
-    const nextAudio = Data.recordings.findIndex( audio => audio.start == recording.start && audio.end == recording.end && audio.filename == recording.filename)
-    if(nextAudio - 1 != 0){
+    const nextAudio = Data.recordings.findIndex( audio => audio.start === recording.start && audio.end === recording.end && audio.filename === recording.filename)
+    if(nextAudio - 1 !== 0){
       setSelectedAudio(Data.recordings[nextAudio - 1])
     }
   }
 
   function findNext(recording){
-    const nextAudio = Data.recordings.findIndex( audio => audio.start == recording.start && audio.end == recording.end && audio.filename == recording.filename)
-    if(nextAudio + 1 != Data.recordings.length){
+    const nextAudio = Data.recordings.findIndex( audio => audio.start === recording.start && audio.end === recording.end && audio.filename === recording.filename)
+    if(nextAudio + 1 !== Data.recordings.length){
       setSelectedAudio(Data.recordings[nextAudio + 1])
     }
   }
