@@ -8,3 +8,7 @@ input, button, select, textarea, optgroup, option {
 body {
     font-size: 1.75em;
 }
+
+audio{
+    width: 50%;
+}
