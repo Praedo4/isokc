@@ -42,6 +42,7 @@ function Recording(data) {
   return (
     <section id={data.start}>
       <p>Шлоки: {shlokas.join(",")}</p>
+      <code>Запись №{data.index} / {data.totalCount}</code><br/>
       <button onClick={()=>data.findPrevious(data)}>←</button>
       <audio controls ref={audioRef}>
         <source src={getAudioFilename(data)} type="audio/mpeg" />

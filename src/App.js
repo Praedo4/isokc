@@ -42,23 +42,29 @@ function useLocalStorageState(
 
 
 function App() {
-  const [selectedAudio, setSelectedAudio] = useLocalStorageState('currentAudio', Data.recordings[0])
+  const [selectedAudio, setSelectedAudio] = useLocalStorageState('currentAudio', {index:1, ...Data.recordings[0]})
+
+  function findAudioIndex(recording){
+    return Data.recordings.findIndex( audio => audio.start === recording.start && audio.end === recording.end && audio.filename === recording.filename)
+  }
 
   function selectAudio(data){
-    setSelectedAudio(data)
+    console.log(data)
+    console.log({index:findAudioIndex(data) + 1, ...data})
+    setSelectedAudio({index:findAudioIndex(data) + 1, ...data})
   }
 
   function findPrevious(recording){
-    const nextAudio = Data.recordings.findIndex( audio => audio.start === recording.start && audio.end === recording.end && audio.filename === recording.filename)
-    if(nextAudio - 1 !== 0){
-      setSelectedAudio(Data.recordings[nextAudio - 1])
+    const nextAudio = findAudioIndex(recording)
+    if(nextAudio - 1 >= 0){
+      setSelectedAudio({index:(nextAudio - 1) + 1, ...Data.recordings[nextAudio - 1]})
     }
   }
 
   function findNext(recording){
-    const nextAudio = Data.recordings.findIndex( audio => audio.start === recording.start && audio.end === recording.end && audio.filename === recording.filename)
+    const nextAudio = findAudioIndex(recording)
     if(nextAudio + 1 !== Data.recordings.length){
-      setSelectedAudio(Data.recordings[nextAudio + 1])
+      setSelectedAudio({index:(nextAudio + 1) + 1, ...Data.recordings[nextAudio + 1]})
     }
   }
 
@@ -81,7 +87,7 @@ function App() {
         <TableOfContent {...Data} onSelect={selectAudio}/>
         <hr />
       </section>
-      <Recording {...selectedAudio} findPrevious={findPrevious} findNext={findNext}/>
+      <Recording totalCount={Data.recordings.length} {...selectedAudio} findPrevious={findPrevious} findNext={findNext}/>
     </div>
   );
 }
