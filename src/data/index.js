@@ -41,10 +41,12 @@ const recordings = [
     { start: "4.32", end: "4.34" },
     { start: "4.35", end: "4.40" },
     { start: "4.41", end: "4.42" },
-    { start: "4.43", end: "5.6" },
+    { start: "5.1", end: "5.6" },
     { start: "5.7", end: "5.14" },
+    { start: "5.15", end: "5.15" },
+    { start: "5.16", end: "5.17" },
     { start: "5.15", end: "5.26" },
-    { start: "5.27", end: "6.5" },
+    { start: "6.1", end: "6.5" },
     { start: "6.6", end: "6.6" },
     { start: "6.7", end: "6.10" },
     { start: "6.11", end: "6.19" },
@@ -69,6 +71,7 @@ const recordings = [
     { start: "8.11", end: "8.13" },
     { start: "8.14", end: "8.21" },
     { start: "8.22", end: "8.25" },
+    { start: "8.26", end: "8.28" },
     { start: "9.1", end: "9.1" },
     { start: "9.2", end: "9.2" },
     { start: "9.3", end: "9.3" },
@@ -99,6 +102,7 @@ const recordings = [
     { start: "10.12", end: "10.15", },
     { start: "10.16", end: "10.17", },
     { start: "10.17", end: "10.17", filename: "10.17.2.mp3" },
+    { start: "10.18", end: "10.18", },
 ];
 
 const data = {recordings: recordings}
