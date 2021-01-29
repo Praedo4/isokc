@@ -84,7 +84,7 @@ function App() {
         <p>Сайт запоминает последнюю выбранную Вами запись, так что Вы можете не
           запоминать и не записывать где именно Вы остановились.</p> 
         <h3>Список записей → → →</h3>
-        <TableOfContent {...Data} onSelect={selectAudio}/>
+        <TableOfContent selectedIndex={selectedAudio.index} {...Data} onSelect={selectAudio}/>
         <hr />
       </section>
       <Recording totalCount={Data.recordings.length} {...selectedAudio} findPrevious={findPrevious} findNext={findNext}/>
