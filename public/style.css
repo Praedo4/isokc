@@ -12,3 +12,7 @@ body {
 audio{
     width: 50%;
 }
+
+button{
+    white-space: nowrap;
+}
