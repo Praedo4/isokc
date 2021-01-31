@@ -53,7 +53,7 @@ function App() {
         setSelectedAudio(...recordings[0])
       }
     })
-  })
+  }, [])
 
   const [selectedAudio, setSelectedAudio] = useLocalStorageState('currentAudio', {index:1})
 
