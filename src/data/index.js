@@ -107,6 +107,7 @@ const recordings = [
     { start: "10.22", end: "10.25", },
     { start: "10.25", end: "10.25", filename: "10.25.2.mp3" },
     { start: "10.26", end: "10.29", },
+    { start: "10.31", end: "10.32", },
 ];
 
 const data = {recordings: recordings}
