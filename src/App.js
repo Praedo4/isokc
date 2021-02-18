@@ -45,6 +45,8 @@ function useLocalStorageState(
 
 function App() {
   const [recordings, setRecordings] = React.useState(null)
+  const [selectedAudio, setSelectedAudio] = useLocalStorageState('currentAudio', {index:1})
+
   React.useEffect(() =>{
     console.log('Fetching data from Directus...')
     fetchDataFromDirectus().then(result => {
@@ -53,9 +55,9 @@ function App() {
         setSelectedAudio(...recordings[0])
       }
     })
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const [selectedAudio, setSelectedAudio] = useLocalStorageState('currentAudio', {index:1})
 
   function findAudioIndex(recording){
     return recordings.findIndex( audio => audio.start === recording.start && audio.end === recording.end && audio.filename === recording.filename)
