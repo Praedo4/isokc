@@ -1,6 +1,6 @@
 import DirectusSDK from '@directus/sdk-js';
 
-const directus = new DirectusSDK('http://localhost:8055/');
+const directus = new DirectusSDK('https://gita-db.azurewebsites.net/');
 
 async function fetchDataFromDirectus() {
 	// Wait for login to be done...
