@@ -1,5 +1,7 @@
 function TableOfContent(props) {
-  console.log(props.selectedIndex)
+  if(props.recordings == null){
+    return null
+  }
   return (
     <div style={{ display: "flex", overflowX: "auto" }}>
       {props.recordings.map((recording, i) => {

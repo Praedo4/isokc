@@ -2,7 +2,7 @@ import "./App.css";
 
 
 
-import Data from "./data";
+import fetchDataFromDirectus from "./data/directus.js"
 import Recording from "./components/recording.js";
 import TableOfContent from "./components/tableOfContent.js";
 import * as React from 'react'
@@ -14,6 +14,8 @@ function useLocalStorageState(
 ) {
   const [state, setState] = React.useState(() => {
     const valueInLocalStorage = window.localStorage.getItem(key)
+
+
     if (valueInLocalStorage) {
       // the try/catch is here in case the localStorage value was set before
       // we had the serialization in place (like we do in previous extra credits)
@@ -42,29 +44,38 @@ function useLocalStorageState(
 
 
 function App() {
-  const [selectedAudio, setSelectedAudio] = useLocalStorageState('currentAudio', {index:1, ...Data.recordings[0]})
+  const [recordings, setRecordings] = React.useState(null)
+  React.useEffect(() =>{
+    console.log('Fetching data from Directus...')
+    fetchDataFromDirectus().then(result => {
+      setRecordings(result.data)
+      if(!selectedAudio){
+        setSelectedAudio(...recordings[0])
+      }
+    })
+  }, [])
+
+  const [selectedAudio, setSelectedAudio] = useLocalStorageState('currentAudio', {index:1})
 
   function findAudioIndex(recording){
-    return Data.recordings.findIndex( audio => audio.start === recording.start && audio.end === recording.end && audio.filename === recording.filename)
+    return recordings.findIndex( audio => audio.start === recording.start && audio.end === recording.end && audio.filename === recording.filename)
   }
 
   function selectAudio(data){
-    console.log(data)
-    console.log({index:findAudioIndex(data) + 1, ...data})
     setSelectedAudio({index:findAudioIndex(data) + 1, ...data})
   }
 
   function findPrevious(recording){
     const nextAudio = findAudioIndex(recording)
     if(nextAudio - 1 >= 0){
-      setSelectedAudio({index:(nextAudio - 1) + 1, ...Data.recordings[nextAudio - 1]})
+      setSelectedAudio({index:(nextAudio - 1) + 1, ...recordings[nextAudio - 1]})
     }
   }
 
   function findNext(recording){
     const nextAudio = findAudioIndex(recording)
-    if(nextAudio + 1 !== Data.recordings.length){
-      setSelectedAudio({index:(nextAudio + 1) + 1, ...Data.recordings[nextAudio + 1]})
+    if(nextAudio + 1 !== recordings.length){
+      setSelectedAudio({index:(nextAudio + 1) + 1, ...recordings[nextAudio + 1]})
     }
   }
 
@@ -84,10 +95,10 @@ function App() {
         <p>Сайт запоминает последнюю выбранную Вами запись, так что Вы можете не
           запоминать и не записывать где именно Вы остановились.</p> 
         <h3>Список записей → → →</h3>
-        <TableOfContent selectedIndex={selectedAudio.index} {...Data} onSelect={selectAudio}/>
+        <TableOfContent selectedIndex={selectedAudio.index} recordings={recordings} onSelect={selectAudio}/>
         <hr />
       </section>
-      <Recording totalCount={Data.recordings.length} {...selectedAudio} findPrevious={findPrevious} findNext={findNext}/>
+      <Recording totalCount={recordings ? recordings.length : 0} {...selectedAudio} findPrevious={findPrevious} findNext={findNext}/>
     </div>
   );
 }
