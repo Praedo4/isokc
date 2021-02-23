@@ -2,6 +2,8 @@ import "./App.css";
 
 
 
+
+import Data from "./data";
 import fetchDataFromDirectus from "./data/directus.js"
 import Recording from "./components/recording.js";
 import TableOfContent from "./components/tableOfContent.js";
@@ -44,19 +46,21 @@ function useLocalStorageState(
 
 
 function App() {
-  const [recordings, setRecordings] = React.useState(null)
-  const [selectedAudio, setSelectedAudio] = useLocalStorageState('currentAudio', {index:1})
+  // const [recordings, setRecordings] = React.useState(null)
+  const recordings = Data.recordings
+  console.log(recordings)
+  const [selectedAudio, setSelectedAudio] = useLocalStorageState('currentAudio', {index:1, ...recordings[0]})
 
-  React.useEffect(() =>{
-    console.log('Fetching data from Directus...')
-    fetchDataFromDirectus().then(result => {
-      setRecordings(result.data)
-      if(!selectedAudio){
-        setSelectedAudio(...recordings[0])
-      }
-    })
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  // React.useEffect(() =>{
+  //   console.log('Fetching data from Directus...')
+  //   fetchDataFromDirectus().then(result => {
+  //     setRecordings(result.data)
+  //     if(!selectedAudio){
+  //       setSelectedAudio(...recordings[0])
+  //     }
+  //   })
+  // // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [])
 
 
   function findAudioIndex(recording){
