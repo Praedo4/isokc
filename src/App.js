@@ -4,7 +4,6 @@ import "./App.css";
 
 
 import Data from "./data";
-import fetchDataFromDirectus from "./data/directus.js"
 import Recording from "./components/recording.js";
 import TableOfContent from "./components/tableOfContent.js";
 import * as React from 'react'
