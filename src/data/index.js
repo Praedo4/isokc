@@ -120,6 +120,8 @@ const recordings = [
     { start: "11.31", end: "11.36", },
     { start: "11.37", end: "11.43", },
     { start: "11.44", end: "11.48", },
+    { start: "11.49", end: "11.50", },
+    { start: "11.51", end: "11.53", },
 ];
 
 const data = {recordings: recordings}
