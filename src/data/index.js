@@ -127,6 +127,7 @@ const recordings = [
     { start: "12.1", end: "12.4", },
     { start: "12.5", end: "12.8", },
     { start: "12.9", end: "12.9", },
+    { start: "12.10", end: "12.12", },
 ];
 
 const data = {recordings: recordings}
